@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+
+<div class="container">
+    <h2>Расписание тренировок</h2>
+<form action="/form" method="post">
+  <div class="form-group">
+    <label for="input1">Name</label>
+    <input class="form-control form-control-lg" autocomplete="off" autofocus type="text" id="input1" name="name" placeholder="First name">
+    </div>
+    <div class="form-group">
+    <label for="input2">Telephone</label>
+    <input class="form-control form-control-lg" id="input2" name="phone" placeholder="Number of phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+    <span>Format: 050-123-45-67</span>
+   </div>
+  <div class="form-group">
+    <label for="select1">Group select</label>
+     <select name="group" class="custom-select custom-select-lg mb-3" id="select1">
+     <option disabled selected value="">Open this select menu</option>
+      <option value="kids">16:00-17:00</option>
+      <option value="17:00-18:00">17:00-18:00</option>
+      <option value="18:30-20:00">18:30-20:00</option>
+      <option value="adult">20:00-22:00</option>
+    </select>
+    </div>
+    <div class="form-check form-check-inline">
+     <input class="form-check-input" type="radio" name="k1" id="karate" value="N">
+     <label class="form-check-label" for="karate">пн.,ср.,пт.</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="k2" id="karate1" value="A">
+      <label class="form-check-label" for="karate1">вт.,чт.,сб</label>
+    </div>
+
+  <div class="form-group">
+    <label for="Textarea1">Example textarea</label>
+    <textarea class="form-control" style="font-size: 18px;" id="Textarea1" rows="3"></textarea>
+  </div>
+  <button class="btn btn-success btn-lg mb-4" type="submit">Submit form</button>
+</form>
+</div>
+    <script>
+    document.querySelector('form').onsubmit = function() {
+        if(!document.querySelector('input').value) {
+            alert(" fill input ");
+            return false;
+        }
+        else if(!document.querySelector('select').value) {
+            alert("You must choose group");
+            return false;
+        }
+        return true;
+    };
+
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct plt{
+    char name[20];
+    int age;
+    struct plt *next;
+};
+
+int main(int argc, char *argv[]) {
+    struct plt *tmp;       // для промежуточных действий
+    struct plt *list_data; // сам список
+
+    // преобразовать выходное значение malloc к указателю на структуру
+    // входное значение для malloc размер самой структуры
+    list_data = (struct plt *)malloc(sizeof(struct plt));
+
+    // Задаем первый элемент списка
+    strcpy(list_data->name, "Имя 1");
+    list_data->age = 20;
+    list_data->next = NULL; // Начальный элемент next указывает на NULL
+
+    // Выделяем память для следующего элемента списка
+    tmp = (struct plt *)malloc(sizeof(struct plt));
+
+    strcpy(tmp->name, "Имя 2");
+    tmp->age = 30;
+    tmp->next = list_data; // next указывает на предыдущий элемент
+
+    list_data = tmp; // list_data указывает на последний элемент списка
+
+    // Добавить N элементов
+
+    tmp = list_data; // для прохода по списку используем промежуточное значеине
+                     // дабы не потерять связь с началом списка
+
+    // дотех пор пока невстретим указатель на NULL просмотрим список
+    while(tmp != NULL) {
+        fprintf(stdout, "%s %d\n", tmp->name, tmp->age);
+        tmp = tmp->next; // переход к следущему элементу списка
+    }
+
+    tmp = list_data; // Теперь очистим список
+
+    list_data = tmp->next; // list_data указывает на предпоследний элемент списка
+    free(tmp);
+    free(list_data);
+
+    return EXIT_SUCCESS;
+}
+
+Сдорка под Linux

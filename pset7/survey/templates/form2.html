@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+    <fieldset>
+        <legend>ISK-KI</legend>
+       First name: <input name = "name" type = "text" autocomplete = "off" autofocus>
+        <select name = "tutorial">
+            <option disabled selected value="">Groups</option>
+            <option value ="adult">Adult from 14</option>
+            <option value = "middle">from 10-14</option>
+            <option value = "low">from 5-10</option>
+        </select>
+        <lebel for = "karate">Karate</lebel>
+        <input type ="radio" name = "iskki" id = "karate" value = "shotokan">
+        <lebel for = "fitness">Fitness</lebel>
+        <input type = "radio" name = "iskki" id = "fitness" value = "fitnes">
+        </fieldset>
+
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+    document.querySelector('form').onsubmit = function() {
+        if(!document.querySelector('input').value) {
+            alert("You must fill input fild");
+            return false;
+        }
+        else if(!document.querySelector('select').value) {
+            alert("You must choose group");
+            return false;
+        }
+        return true;
+    };
+
+
+    </script>
+
+{% endblock %}

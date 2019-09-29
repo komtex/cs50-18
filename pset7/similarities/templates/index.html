@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+         <h1>Two file similarity</h1>  
+        <form action="/compare" enctype="multipart/form-data" method="post">
+         <fieldset>
+          <legend>Similarities</legend>
+        <input type="file" placeholder="File1" name="file1">
+        <input type="file" placeholder="File2" name="file2">
+        <select name="algorithm">
+         <option disabled selected value="">algorithm</option>   
+         <option value="lines">Lines</option>  
+         <option value="sentences">sentences</option>   
+         <option value="substrings">substrings</option> 
+        </select>
+        <input type="number" name="lenght">
+        <input type="submit" value="compare">
+         </fieldset>
+        </form>
+        
+        <script >
+         document.querySelector('form').onsubmit = function() {
+             if(!document.querySelector('input').value){
+                 alert("You must provide file");
+                 return false;
+             }
+             else if(!document.querySelector('select').value) {
+                 alert("You must provide algorithm");
+                 return false;
+             }
+             return true;
+         };  
+            
+        </script>
+    </div>
+
+{% endblock %}

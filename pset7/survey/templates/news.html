@@ -1,0 +1,364 @@
+<!Doctype html>
+<html lang="en">
+<head>   
+      <meta charset="UTF-8">
+ <title>ISK KI Shotokan karate</title>    
+ <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/221620/animate.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+ <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
+   <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style1.css">
+ 	<style>	
+ /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,300,600,700,800);
+body {
+  height: 10vh;
+  background-image: radial-gradient(#374566, #010203);
+  color: #ccc;
+  font-family: Raleway;
+  letter-spacing: 0.15em;
+  font-size: 20px;
+}
+canvas {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+}
+#wishes {
+  width: 20em;
+  margin: calc(50vh - 6.7em) auto;
+  border: 1px dotted;
+  text-align: center;
+  background: hsla(210, 50%, 15%, 0.75);
+}
+span {
+  display: inline-block;
+}
+span.jump {
+  animation: jump 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s 2 alternate;
+}
+@keyframes jump {
+  to {
+    transform: translateY(-0.7em);
+  }
+}
+
+#pleaseClick {
+  position: absolute;
+  background: hsla(210, 50%, 15%, 0.75);
+  font-size: 80%;
+  width: 10em;
+  text-align: center;
+  left: calc(50vw - 5em);
+  top: calc(50vh - 12.5em);
+  animation: jump 1s ease-in-out infinite alternate;
+}
+#pleaseClick span {
+  font-size: 200%;
+}
+
+.control {
+  text-align: center;
+}
+
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18em;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #777;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #374566;
+  border-radius: 50%;
+  margin-top: -9px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background-color: #777;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #333;
+  border-radius: 50%;
+}
+
+input[type="range"]::-ms-thumb {
+  background-color: #777;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #333;
+  border-radius: 50%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #777;
+  height: 3px;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  outline: none;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: #777;
+  height: 3px;
+}
+
+input[type="range"]::-ms-track {
+  background-color: #777;
+  height: 3px;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background-color: HotPink;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background-color: black;
+}
+
+   </style>	
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+ 
+ <script src="js/index.js"></script>
+ 
+</head>
+<body>
+<canvas id="canvas" width="60" height="60"></canvas>
+<div id="pleaseClick">Please click<br><span>&#9759;</span></div>
+<div id="wishes">
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <p id="p3"></p>
+  <p id="p4"></p>
+  <p class="control"><label for="inputSpeed"><!--Speed: --></label><br><input type="range" id="inputSpeed" min="0.1" max="2" step="0.1" value="0.5"></p>
+</div>	
+	
+<header>	
+	<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <h1> <a href="#navbar-collapse1" class="navbar-brand">ISK KI CLUB</a></h1>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                     <a href="index.html">home</a>                        
+                    </li>
+                    <li>
+                        <a href="media.html">media</a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact">contact</a>
+                    </li>
+                    <li>
+                     <a href="about.html">about</a>  
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+      </nav>
+
+	<!-- Scrolling Banner -->
+	<div id="horizontal-scroll">
+	  <div id="horizontal-scroll2">
+		<div id="horizontal-scroll3">
+		  <div id="banner">
+			<span style="display: block;" class="animated infinite pulse">
+			  <h1 id="navbar-collapse1">ISK KI Shotokan karate</h1>
+			</span>
+			<h3 class="scrollbanner"><a href="#call">Call to Action!</a></h3>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	</header>
+     <div class="wrapper">
+<div class="banner">
+<h1>ISKKI shotokan karate сlub</h1>
+</div>
+<div class="main1">
+<h2>Приоритетное направление тренировок</h2>
+<p>Является изучение и постоянное повышение навыков базовой техники Shotokan karate (кигон).Безусловно, лучший способ постичь karate -это не только оттачивать движения ката, но и стремиться понять смысл, заключенный в каждой из них.</p>
+<p>Shotokan отличается линейными перемещениями и линейным приложением силы. Стойки низкие и широкие. Блоки жесткие, удары мощные и реверсивные с включением в удар бедра. Принцип Ikken-Hissatsu(одним ударом наповал) является основополагающим в Shotokan karate. </p>
+<p>Программа Shotokan karate имеет 26 различных ката, принятих называть классическими, изучение которых является важнейшей составляющей тренинга.</p>
+<h2>Большое внимание уделяется:</h2>
+<p>Выработке жесткого баланса, общей устойчивости, что достигается отработкой низких, глубоких стоек.</p>
+<p>Вращательным движениям бедер в горизонтальной плоскости, в прямом или обратном удару направлении, что генерирует огромную разрушительную силу в ударах и блоках. Своевременному и мгновенному включению всех групп мышц в конечной фазе удара, благодаря чему возникает импульс или ударная волна распространяющая вглубь поражаемой поверхности.</p>
+</div>
+<div class="announcement">
+<h2>Announcements</h2>
+<ul>
+<li class="a">Клуб isk ki приглашает на тренировки по каратэ </li>
+<li> дети от 5 лет и взрослые без ограничения в возрасте </li>
+<li>Тренировки в dojo  Ніжинська,10 </li>
+<li>dojo ул. Преображенська,25 </li>
+<li>Запись по телефону: 0669743779</li>
+  <li>Chief instructor 5<sup>th</sup> dan N.Maltsev</li>
+</ul>
+</div>
+</div>            
+   <h3 class="bangersheader">ISK KI Shotokan karate club</h3>
+   <h4 class="amatic">Технический семинар и аттестация. ISKKI Shotokan karate club. 20.01.2018г.</h4>
+
+	<div class="row">
+             <div class="col-md-4 col-sm-4 hero-feature">
+                <div class="thumbnail">
+                <a href="images/img_0702a.jpg" target="_blank">
+                    <img src="./images/img_0702a.jpg" alt="camp">
+                    <div class="caption">
+                        <h4 class="bangersheader">семинар 2018</h4>                  
+                    </div> 
+                    </a>               
+                </div>
+            </div>           
+
+            <div class="col-md-4 col-sm-4 hero-feature">
+                <div class="thumbnail">
+                <a href="images/img_0728a.jpg" target="_blank">
+                  <img src="./images/img_0728a.jpg" alt="camp">
+                    <div class="caption">
+                        <h4 class="bangersheader">семинар 2018</h4> 
+                    </div>
+                       </a> 
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-4 hero-feature">
+                 <div class="thumbnail">
+                <a href="images/img_0738a.jpg" target="_blank">
+                <img src="./images/img_0738a.jpg" alt="camp" style="width: 100%">
+                   <div class="caption">
+             <h4 class="bangersheader">cеминар 2018</h4>
+                   </div>
+                </a>
+                </div>    
+            </div>
+             <div class="col-md-4 col-sm-4 hero-feature">
+                <div class="thumbnail">
+                <a href="images/img_0801a.jpg" target="_blank">
+                    <img src="./images/img_0801a.jpg" alt="camp">
+                    <div class="caption">
+                        <h4 class="bangersheader">аттестация 2018</h4>                  
+                    </div> 
+                    </a>               
+                </div>
+            </div>           
+
+            <div class="col-md-4 col-sm-4 hero-feature">
+                <div class="thumbnail">
+                <a href="images/jpg_0944a.jpg" target="_blank">
+                  <img src="./images/jpg_0944a.jpg" alt="camp">
+                    <div class="caption">
+                        <h4 class="bangersheader">аттестация 2018</h4> 
+                    </div>
+                       </a> 
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-4 hero-feature">
+                 <div class="thumbnail">
+                <a href="images/img_0998a.jpg" target="_blank">
+                <img src="./images/img_0998a.jpg" alt="camp" style="width: 100%">
+                   <div class="caption">
+             <h4 class="bangersheader">чемпионат ассоциации 2018</h4>
+                   </div>
+                </a>
+                </div>    
+            </div>
+            <div class="col-md-4 col-sm-4 hero-feature">
+                <div class="thumbnail">
+                <a href="images/img_0990a.jpg" target="_blank">
+                    <img src="./images/img_0990a.jpg" alt="iskki">
+                    <div class="caption">
+                        <h4 class="bangersheader">чемпионат ассоциации 2018</h4>                  
+                    </div> 
+                    </a>               
+                </div>
+            </div>           
+
+            <div class="col-md-4 col-sm-4 hero-feature">
+                <div class="thumbnail">
+                <a href="images/kt15a.jpg" target="_blank">
+                  <img src="./images/kt15a.jpg" alt="iskki">
+                    <div class="caption">
+                        <h4 class="bangersheader">competition 2000</h4> 
+                    </div>
+                       </a> 
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-4 hero-feature">
+                 <div class="thumbnail">
+                <a href="images/img_0797a.jpg" target="_blank">
+                <img src="./images/img_0797a.jpg" alt="Tania" style="width: 100%">
+                   <div class="caption">
+             <h4 class="bangersheader">Gulevets Tania Kyu 8</h4>
+                   </div>
+                </a>
+                </div>    
+            </div>
+     </div>
+	     <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div id="contact" class="footer-col col-md-4">
+                        <h3 class="bangersheader">Location</h3>
+                        <p>03065 Kiev, Nizinska, 10
+                            <br>Email:iskkikarate@gmail.com </p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3 class="bangersheader">Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+    <a href="https://facebook.com/iskkikar" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+ <a href="https:/linkedin.com/in/komtex" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 animated infinite pulse">
+                        <span class="amatic" style="font-size: 26px">Copyright &copy;  2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+<script src="js/index3.js"></script>
+<script src="js/index2.js"></script>
+</body>
+</html>
